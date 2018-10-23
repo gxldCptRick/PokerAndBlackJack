@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlackJackAndPoker
+namespace BlackJackAndPoker.Enums
 {
-    public class Class1
+    public enum Suit
     {
+        Heart,
+        Diamond,
+        Club,
+        Spade
     }
 }
