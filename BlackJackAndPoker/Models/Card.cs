@@ -17,5 +17,10 @@ namespace BlackJackAndPoker.Models
             this.Rank = rank;
             this.Suit = suit;
         }
+
+        public override string ToString()
+        {
+            return $"{Rank} of {Suit}s";
+        }
     }
 }
