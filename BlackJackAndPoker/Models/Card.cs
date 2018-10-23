@@ -11,6 +11,7 @@ namespace BlackJackAndPoker.Models
     {
         public readonly Rank Rank;
         public readonly Suit Suit;
+
         public Card(Rank rank, Suit suit)
         {
             this.Rank = rank;
