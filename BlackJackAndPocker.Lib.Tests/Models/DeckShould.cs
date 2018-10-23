@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BlackJackAndPoker.Enums;
 using BlackJackAndPoker.Models;
@@ -52,6 +53,32 @@ namespace BlackJackAndPocker.Lib.Tests.Models
             var deck = new Deck();
             //assert 
             Assert.AreEqual(13, deck.Cards.Where((s) => s.Suit == Suit.Spade).Count());
+        }
+
+        [TestMethod]
+        public void NotHaveTheCardsInTheSameOrderAsWhenTheyAreFirstCreatedAfterShuffling()
+        {
+            //arrange
+            var deck = new Deck();
+            var unexpected = deck.Cards;
+            IEnumerable<Card> actual;
+            //act
+            deck.ShuffleCards();
+            actual = deck.Cards;
+            //assert 
+            Assert.AreNotEqual(unexpected, actual);
+        }
+
+        [TestMethod]
+        public void RemoveACardFromTheDeckWhenDrawCardIsCalled()
+        {
+            //arrange
+            var deck = new Deck();
+
+            //act 
+            deck.DrawCard();
+            //assert 
+            Assert.AreEqual(51, deck.Cards.Count());
         }
     }
 }

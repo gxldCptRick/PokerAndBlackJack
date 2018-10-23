@@ -1,4 +1,5 @@
 ﻿using BlackJackAndPoker.Enums;
+using BlackJackAndPoker.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,12 @@ namespace BlackJackAndPoker.Models
 {
     public class Deck
     {
-        private readonly List<Card> _cards;
+        private Queue<Card> _cards;
         public IEnumerable<Card> Cards => _cards;
 
         public Deck()
         {
-            _cards = new List<Card>(52);
+            _cards = new Queue<Card>(52);
             InitializeCards();
         }
 
@@ -26,7 +27,7 @@ namespace BlackJackAndPoker.Models
             {
                 foreach (var rank in ranks)
                 {
-                    _cards.Add(new Card(rank, suit));
+                    _cards.Enqueue(new Card(rank, suit));
                 }
             }
            
@@ -34,7 +35,14 @@ namespace BlackJackAndPoker.Models
 
         public void ShuffleCards()
         {
-            //some sort of shuffle mechanics
+            var deckInAList = new List<Card>(_cards);
+            deckInAList.Shuffle();
+            _cards = new Queue<Card>(deckInAList);
+        }
+
+        public Card DrawCard()
+        {
+            return _cards.Dequeue();   
         }
 
     }

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Enums\Rank.cs" />
     <Compile Include="Enums\Suit.cs" />
+    <Compile Include="Extensions\IListExtensions.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Deck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
