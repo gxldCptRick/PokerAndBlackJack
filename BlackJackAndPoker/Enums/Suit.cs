@@ -8,9 +8,9 @@ namespace BlackJackAndPoker.Enums
 {
     public enum Suit
     {
-        Heart,
-        Diamond,
-        Club,
-        Spade
+        Diamond = 1,
+        Club = 2,
+        Heart = 3,
+        Spade = 4
     }
 }
