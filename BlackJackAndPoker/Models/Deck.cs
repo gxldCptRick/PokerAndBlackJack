@@ -10,24 +10,25 @@ namespace BlackJackAndPoker.Models
 {
     public class Deck
     {
-        private Queue<Card> _cards;
+        private readonly List<Card> _cards;
         public IEnumerable<Card> Cards => _cards;
 
         public Deck()
         {
-            _cards = new Queue<Card>(52);
+            _cards = new List<Card>(52);
             InitializeCards();
         }
 
         private void InitializeCards()
         {
+            _cards.Clear();
            var suits =  Enum.GetValues(typeof(Suit)).Cast<Suit>().ToArray();
             var ranks = Enum.GetValues(typeof(Rank)).Cast<Rank>().ToArray();
             foreach (var suit in suits)
             {
                 foreach (var rank in ranks)
                 {
-                    _cards.Enqueue(new Card(rank, suit));
+                    _cards.Add(new Card(rank, suit));
                 }
             }
            
@@ -35,14 +36,14 @@ namespace BlackJackAndPoker.Models
 
         public void ShuffleCards()
         {
-            var deckInAList = new List<Card>(_cards);
-            deckInAList.Shuffle();
-            _cards = new Queue<Card>(deckInAList);
+            _cards.Shuffle();
         }
 
         public Card DrawCard()
         {
-            return _cards.Dequeue();   
+            var cardDrawn = _cards[0];
+            _cards.RemoveAt(0);
+            return cardDrawn;
         }
 
     }
