@@ -1,17 +1,16 @@
-﻿using BlackJackAndPoker.Controllers;
+﻿using BlackJackAndPoker.ConsoleGame.Models;
+using BlackJackAndPoker.Controllers;
 using BlackJackAndPoker.Models;
 using CSC160_ConsoleMenu;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlackJackAndPoker.ConsoleGame.Controllers
 {
-    class GameOfBlackJack
+    internal class GameOfBlackJack
     {
-        List<CardPlayer> players;
+        private List<ConsoleCardPlayer> players;
         private BlackJackController c;
         private bool turnActive;
         private CardPlayer currentPlayer;
@@ -41,8 +40,8 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
             {
                 for (int i = 0; i < players.Count && c.IsGameOver; i++)
                 {
-                   currentPlayer = players[i];
-                   RunTurn();
+                    currentPlayer = players[i];
+                    RunTurn();
                 }
                 c.RunHouseTurn();
             } while (gameIsRunning);
@@ -50,19 +49,22 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
 
         private void RunTurn()
         {
-           turnActive = true;
-            string[] menuSelection = { "Hit","Pass" };
+            turnActive = true;
+            string[] menuSelection = { "Hit", "Pass" };
             do
             {
+                Console.WriteLine($"{currentPlayer}'s Turn ");
                 int choice = ConsoleIO.PromptForMenuSelection(menuSelection, false);
                 switch (choice)
                 {
                     case 1:
                         c.HitPlayer(currentPlayer);
                         break;
-                    default:
+                    case 2:
                         turnActive = false;
                         break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(choice),"You gotta select a value between one and two.");
                 }
             } while (turnActive);
         }
@@ -71,11 +73,20 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
         {
             int amountOfPlayers = ConsoleIO.PromptForInt("Enter How Many Players", 1, 5);
             c = new BlackJackController();
-            c.Winner += (winner, winCondition) => 
+            c.Winner += (winner, winCondition) =>
             {
-                Console.WriteLine($"{winner} has Won!!!");
+                if (winner != c.House)
+                {
+                    Console.WriteLine($"{winner} has Won!!!");
+                }
+                else
+                {
+                    Console.WriteLine($"the house has Won!!!");
+                }
+
                 gameIsRunning = false;
             };
+
             c.Bust += (busted) =>
             {
                 if (currentPlayer == busted)
@@ -83,12 +94,13 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
                     turnActive = false;
                 }
             };
-            c.StartGame(amountOfPlayers);
-            players = c.Players;
+
+            c.StartGame<ConsoleCardPlayer>(amountOfPlayers);
+            players = c.Players.Cast<ConsoleCardPlayer>().ToList();
             foreach (var player in players)
             {
                 int initialBet = ConsoleIO.PromptForInt("Take Initial Bet", 1, player.AmountOfMonies);
-                c.TakeInitialBet(initialBet, player);
+                c.TakeInitialBet(player, initialBet);
             }
         }
     }

@@ -6,6 +6,6 @@
         Draw = 1,
         Win = 2,
         Blackjack = 3,
-        FiveCardCharlie = 4
+        Five_Card_Charlie = 4
     }
 }

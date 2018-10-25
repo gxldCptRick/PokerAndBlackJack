@@ -60,7 +60,7 @@ namespace BlackJackAndPocker.Lib.Tests.Models
         {
             //arrange
             var deck = new Deck();
-            var unexpected = deck.Cards;
+            var unexpected = deck.Cards.ToList();
             IEnumerable<Card> actual;
             //act
             deck.ShuffleCards();

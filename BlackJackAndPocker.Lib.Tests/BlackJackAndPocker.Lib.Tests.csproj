@@ -49,10 +49,12 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\BlackJackControllerShould.cs" />
     <Compile Include="Models\DeckShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\BlackJackUnitTests\BlackJackController_CountCardsTests.cs" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

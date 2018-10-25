@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7DAB722A-24BC-4DDE-9008-0F610D350A16}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>BlackJackAndPoker.Console</RootNamespace>
+    <RootNamespace>BlackJackAndPoker.ConsoleGame</RootNamespace>
     <AssemblyName>BlackJackAndPoker.ConsoleGame</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\GameOfBlackJack.cs" />
+    <Compile Include="Models\ConsoleCardPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
