@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B6AFE301-DCA3-437D-8271-250ED16D81FA}</ProjectGuid>
+    <ProjectGuid>{74444102-C26D-4308-9D0C-FBED056E58BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BlackJackAndPoker</RootNamespace>
