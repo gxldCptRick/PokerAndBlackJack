@@ -33,8 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Andres_Carrera-ConsoleIO">
-      <HintPath>..\..\assingments\ConsoleIO\ConsoleIO\bin\Debug\Andres_Carrera-ConsoleIO.dll</HintPath>
+    <Reference Include="Andres_Carrera-ConsoleIO, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\external libs\Andres_Carrera-ConsoleIO.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -55,9 +56,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BlackJackAndPoker\BlackJackAndPoker.csproj">
+    <ProjectReference Include="..\BlackJackAndPoker\BlackJackAndPoker.Lib.csproj">
       <Project>{b6afe301-dca3-437d-8271-250ed16d81fa}</Project>
-      <Name>BlackJackAndPoker</Name>
+      <Name>BlackJackAndPoker.Lib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
