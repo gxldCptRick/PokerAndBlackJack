@@ -38,6 +38,7 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
             gameIsRunning = true;
             do
             {
+                Console.WriteLine("You New Round...");
                 for (int i = 0; i < players.Count && c.IsGameOver; i++)
                 {
                     currentPlayer = players[i];
@@ -62,6 +63,7 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
                         break;
                     case 2:
                         turnActive = false;
+                        Console.WriteLine($"");
                         break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(choice),"You gotta select a value between one and two.");

@@ -102,6 +102,7 @@ namespace BlackJackAndPoker.Controllers
         {
             int totalAfterAces = runningHandTotal;
             //if amount before aces is still less than or equal 21 and we have ace
+
             if (totalAfterAces <= 21 && amountOfAces > 0)
             {
                 //if the amount left is less than 11 add the ace as 11

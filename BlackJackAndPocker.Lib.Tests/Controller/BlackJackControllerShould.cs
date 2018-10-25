@@ -29,11 +29,11 @@ namespace BlackJackAndPocker.Lib.Tests.Controller
             //arrange 
             var blackJackController = new BlackJackController();
             blackJackController.StartGame<CardPlayer>();
-            
+
             //act
             blackJackController.RunHouseTurn();
             List<Card> houseHand = blackJackController.House.Hand;
-            
+
             //assert
             Assert.IsTrue(blackJackController.CountHand(houseHand) >= 17);
         }
@@ -44,7 +44,7 @@ namespace BlackJackAndPocker.Lib.Tests.Controller
             var player = blackJackController.Players[0];
             blackJackController.TakeInitialBet(player, 100);
 
-            for (int i = 0; i < 53; i++)
+            for (int i = 0; i < 30; i++)
             {
                 blackJackController.HitPlayer(player);
             }
