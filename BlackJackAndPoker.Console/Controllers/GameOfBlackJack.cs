@@ -63,7 +63,7 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
                         break;
                     case 2:
                         turnActive = false;
-                        Console.WriteLine($"");
+                        Console.WriteLine($"{}");
                         break;
                     default:
                         throw new ArgumentOutOfRangeException(nameof(choice),"You gotta select a value between one and two.");
