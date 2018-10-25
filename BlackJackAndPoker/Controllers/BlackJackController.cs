@@ -11,6 +11,21 @@ namespace BlackJackAndPoker.Controllers
         public CardPlayer House => _house;
         public List<CardPlayer> Players { get; private set; }
         public Dictionary<CardPlayer, int> Bets { get; set; }
+        public bool IsGameOver {
+            get
+            {
+                bool isGameOver = false;
+                for (int i = 0; i < Players.Count && !isGameOver; i++)
+                {
+                     isGameOver = Players[i].AmountOfMonies > 0;
+                }
+                return isGameOver;
+            }
+        }
+
+        public event Action<CardPlayer, WinCondition> Winner;
+        public event Action<CardPlayer> Bust;
+
         public BlackJackController()
         {
             _house = new CardPlayer();
@@ -33,10 +48,21 @@ namespace BlackJackAndPoker.Controllers
             }
         }
 
+        public void RunHouseTurn()
+        {
+            throw new NotImplementedException();
+        }
+
         public void TakeInitialBet(int bet, CardPlayer playerTakingTurn)
         {
             Bets[playerTakingTurn] = bet;
+            playerTakingTurn.AmountOfMonies -= bet;
             playerTakingTurn.Hand = GetStartingHand();
+        }
+
+        public void HitPlayer(CardPlayer cardPlayer)
+        {
+            throw new NotImplementedException();
         }
 
         private List<Card> GetStartingHand()
