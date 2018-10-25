@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Andres_Carrera-ConsoleIO, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\external libs\Andres_Carrera-ConsoleIO.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -53,7 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BlackJackAndPoker\BlackJackAndPoker.Lib.csproj">
-      <Project>{74444102-c26d-4308-9d0c-fbed056e58bb}</Project>
+      <Project>{b6afe301-dca3-437d-8271-250ed16d81fa}</Project>
       <Name>BlackJackAndPoker.Lib</Name>
     </ProjectReference>
   </ItemGroup>
