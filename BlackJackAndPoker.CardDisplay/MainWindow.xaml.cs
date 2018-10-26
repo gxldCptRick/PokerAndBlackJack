@@ -33,7 +33,7 @@ namespace BlackJackAndPoker.CardDisplay
             deckBackground.SelectedIndex = 0;
         }
 
-        private void activeDeck_UpdateCard(object sender, SelectionChangedEventArgs e)
+        private void UpdateCard(object sender, SelectionChangedEventArgs e)
         {
             Card c = (Card)activeDeck.SelectedItem;
             var cRank = (int)c.Rank;

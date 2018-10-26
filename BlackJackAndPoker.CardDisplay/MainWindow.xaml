@@ -23,8 +23,8 @@
         <Label Content="Card Face Preview:" Grid.Row="0" Grid.Column="2"></Label>
         <Label Content="Card Back Preview:" Grid.Row="0" Grid.Column="3"></Label>
         
-        <ListView x:Name="activeDeck" Grid.Row="1" Grid.Column="0" SelectionChanged="activeDeck_UpdateCard"></ListView>
-        <ListView x:Name="deckBackground" Grid.Row="1" Grid.Column="1" SelectionChanged="activeDeck_UpdateCard"></ListView>
+        <ListView x:Name="activeDeck" Grid.Row="1" Grid.Column="0" SelectionChanged="UpdateCard"></ListView>
+        <ListView x:Name="deckBackground" Grid.Row="1" Grid.Column="1" SelectionChanged="UpdateCard"></ListView>
         <Image x:Name="displayedCard" Grid.Row="1" Grid.Column="2"></Image>
         <Image x:Name="displayedCardBack" Grid.Row="1" Grid.Column="3"></Image>
     </Grid>
