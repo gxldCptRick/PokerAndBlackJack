@@ -19,7 +19,7 @@ namespace BlackJackAndPoker.Controllers
                 bool gameIsRunning = false;
                 for (int i = 0; i < Players.Count && !gameIsRunning; i++)
                 {
-                    gameIsRunning = Players[i].AmountOfMonies > 0;
+                    gameIsRunning = Players[i].AmountOfMonies > -50;
                 }
                 return !gameIsRunning;
             }

@@ -35,25 +35,27 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
         public void RunGame()
         {
             InitializeGame();
-            gameIsRunning = true;
             do
             {
                 foreach (var player in players)
                 {
-                    if (player.AmountOfMonies > 1)
+                    if (player.AmountOfMonies + 50 > 1)
                     {
-                        int initialBet = ConsoleIO.PromptForInt("Take Initial Bet", 1, player.AmountOfMonies);
+                        int initialBet = ConsoleIO.PromptForInt("Take Initial Bet", 1, player.AmountOfMonies + 50);
                         c.TakeInitialBet(player, initialBet);
                     }
                 }
                 Console.WriteLine("You New Round...");
-                for (int i = 0; i < players.Count && !c.IsGameOver; i++)
+                for (int i = 0; i < players.Count; i++)
                 {
-                    currentPlayer = players[i];
-                    RunTurn();
+                    if (players[i].AmountOfMonies > -51)
+                    {
+                        currentPlayer = players[i];
+                        RunTurn();
+                    }
                 }
                 c.RunHouseTurn();
-            } while (gameIsRunning);
+            } while (!c.IsGameOver);
         }
 
         private void RunTurn()
@@ -70,7 +72,6 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
                 {
                     case 1:
                         c.HitPlayer(currentPlayer);
-
                         break;
                     case 2:
                         turnActive = false;

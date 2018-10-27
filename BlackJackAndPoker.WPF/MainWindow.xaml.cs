@@ -1,17 +1,10 @@
-﻿using System;
+﻿using BlackJackAndPoker.WPF.Views;
+using BlackJackAndPoker.WPF.Views.Enums;
+using BlackJackAndPoker.WPF.Views.Interfaces;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BlackJackAndPoker.WPF
 {
@@ -23,6 +16,48 @@ namespace BlackJackAndPoker.WPF
         public MainWindow()
         {
             InitializeComponent();
+            _pagesNavigated = new Dictionary<Type, Page>();
+            ChangePage(PageRequest.MainPage);
+        }
+
+        private IDictionary<Type, Page> _pagesNavigated;
+
+        private Page GeneratePage<T>() where T : Page, new()
+        {
+            if (!(_pagesNavigated.ContainsKey(typeof(T))))
+            {
+                T page = new T()
+                {
+                    DataContext = DataContext,
+                };
+                if (page is IPageNavigator pageNav)
+                {
+                    pageNav.PageChangeRequested += ChangePage;
+                }
+                _pagesNavigated[typeof(T)] = page;
+            }
+
+            return _pagesNavigated[typeof(T)];
+        }
+
+        private void ChangePage(PageRequest pageRequested)
+        {
+            Page pageToChangeTo = null;
+            switch (pageRequested)
+            {
+                case PageRequest.MainPage:
+                    pageToChangeTo = GeneratePage<MainPage>();
+                    break;
+                case PageRequest.SettingsPage:
+                    pageToChangeTo = GeneratePage<SettingsPage>();
+                    break;
+                case PageRequest.GamePage:
+                    pageToChangeTo = GeneratePage<GamePage>();
+                    break;
+                default:
+                    throw new ArgumentException("The page you requested was not supported.",nameof(pageRequested));
+            }
+            mainFrame.Navigate(pageToChangeTo);
         }
     }
 }
