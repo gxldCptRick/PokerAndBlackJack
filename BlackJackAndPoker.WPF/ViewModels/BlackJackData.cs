@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BlackJackAndPoker.WPF.ViewModel
+namespace BlackJackAndPoker.WPF.ViewModels
 {
     internal class BlackJackData : GameDataBase
     {

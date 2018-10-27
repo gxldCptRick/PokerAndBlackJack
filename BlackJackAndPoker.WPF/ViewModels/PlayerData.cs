@@ -1,7 +1,7 @@
 ﻿using BlackJackAndPoker.Models;
 using System.Collections.Generic;
 
-namespace BlackJackAndPoker.WPF.ViewModel
+namespace BlackJackAndPoker.WPF.ViewModels
 {
     internal class PlayerData : ViewModelBase, ICardPlayer
     {

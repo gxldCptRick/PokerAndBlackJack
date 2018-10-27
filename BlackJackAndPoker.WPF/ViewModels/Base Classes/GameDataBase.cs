@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using BlackJackAndPoker.Controllers;
 using BlackJackAndPoker.Models;
 
-namespace BlackJackAndPoker.WPF.ViewModel
+namespace BlackJackAndPoker.WPF.ViewModels
 {
     internal abstract class GameDataBase : ViewModelBase, IGameData
     {

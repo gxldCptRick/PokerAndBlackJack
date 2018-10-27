@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlackJackAndPoker.WPF.ViewModel
+namespace BlackJackAndPoker.WPF.ViewModels
 {
     interface IGameData : INotifyPropertyChanged
     {

@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\CardToBackConverter.cs" />
+    <Compile Include="Converters\CardToImageConverter.cs" />
     <Compile Include="ViewModels\BlackJackData.cs" />
     <Compile Include="ViewModels\GameDataBase.cs" />
     <Compile Include="ViewModels\IGameData.cs" />
@@ -210,8 +212,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Converters\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

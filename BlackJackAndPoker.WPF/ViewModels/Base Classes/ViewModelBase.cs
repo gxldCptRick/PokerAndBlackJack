@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace BlackJackAndPoker.WPF.ViewModel
+namespace BlackJackAndPoker.WPF.ViewModels
 {
     internal abstract class ViewModelBase : INotifyPropertyChanged
     {
