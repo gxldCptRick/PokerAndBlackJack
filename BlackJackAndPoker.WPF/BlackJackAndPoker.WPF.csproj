@@ -55,9 +55,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModel\MainData.cs" />
-    <Compile Include="ViewModel\PlayerData.cs" />
-    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModels\BlackJackData.cs" />
+    <Compile Include="ViewModels\GameDataBase.cs" />
+    <Compile Include="ViewModels\IGameData.cs" />
+    <Compile Include="ViewModels\PlayerData.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
@@ -133,6 +135,83 @@
       <Name>BlackJackAndPoker.Lib</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Assets\Cards\Back\Blue.png" />
+    <Content Include="Assets\Cards\Back\Faded.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Assets\Cards\Back\Gradient.png" />
+    <Resource Include="Assets\Cards\Back\TyeDye.png" />
+    <Content Include="Assets\Cards\Clubs\10.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cards\Clubs\11.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cards\Clubs\12.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cards\Clubs\13.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cards\Clubs\14.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Cards\Clubs\2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Assets\Cards\Clubs\3.png" />
+    <Resource Include="Assets\Cards\Clubs\4.png" />
+    <Resource Include="Assets\Cards\Clubs\5.png" />
+    <Resource Include="Assets\Cards\Clubs\6.png" />
+    <Resource Include="Assets\Cards\Clubs\7.png" />
+    <Resource Include="Assets\Cards\Clubs\8.png" />
+    <Resource Include="Assets\Cards\Clubs\9.png" />
+    <Resource Include="Assets\Cards\Diamonds\10.png" />
+    <Resource Include="Assets\Cards\Diamonds\11.png" />
+    <Resource Include="Assets\Cards\Diamonds\12.png" />
+    <Resource Include="Assets\Cards\Diamonds\13.png" />
+    <Resource Include="Assets\Cards\Diamonds\14.png" />
+    <Resource Include="Assets\Cards\Diamonds\2.png" />
+    <Resource Include="Assets\Cards\Diamonds\3.png" />
+    <Resource Include="Assets\Cards\Diamonds\4.png" />
+    <Resource Include="Assets\Cards\Diamonds\5.png" />
+    <Resource Include="Assets\Cards\Diamonds\6.png" />
+    <Resource Include="Assets\Cards\Diamonds\7.png" />
+    <Resource Include="Assets\Cards\Diamonds\8.png" />
+    <Resource Include="Assets\Cards\Diamonds\9.png" />
+    <Resource Include="Assets\Cards\Hearts\10.png" />
+    <Resource Include="Assets\Cards\Hearts\11.png" />
+    <Resource Include="Assets\Cards\Hearts\12.png" />
+    <Resource Include="Assets\Cards\Hearts\13.png" />
+    <Resource Include="Assets\Cards\Hearts\14.png" />
+    <Resource Include="Assets\Cards\Hearts\2.png" />
+    <Resource Include="Assets\Cards\Hearts\3.png" />
+    <Resource Include="Assets\Cards\Hearts\4.png" />
+    <Resource Include="Assets\Cards\Hearts\5.png" />
+    <Resource Include="Assets\Cards\Hearts\6.png" />
+    <Resource Include="Assets\Cards\Hearts\7.png" />
+    <Resource Include="Assets\Cards\Hearts\8.png" />
+    <Resource Include="Assets\Cards\Hearts\9.png" />
+    <Resource Include="Assets\Cards\Spades\10.png" />
+    <Resource Include="Assets\Cards\Spades\11.png" />
+    <Resource Include="Assets\Cards\Spades\12.png" />
+    <Resource Include="Assets\Cards\Spades\13.png" />
+    <Resource Include="Assets\Cards\Spades\14.png" />
+    <Resource Include="Assets\Cards\Spades\2.png" />
+    <Resource Include="Assets\Cards\Spades\3.png" />
+    <Resource Include="Assets\Cards\Spades\4.png" />
+    <Resource Include="Assets\Cards\Spades\5.png" />
+    <Resource Include="Assets\Cards\Spades\6.png" />
+    <Resource Include="Assets\Cards\Spades\7.png" />
+    <Resource Include="Assets\Cards\Spades\8.png" />
+    <Resource Include="Assets\Cards\Spades\9.png" />
+    <Content Include="Assets\Tables\Light.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

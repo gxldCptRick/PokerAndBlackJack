@@ -4,9 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BlackJackAndPoker.WPF.Views.UserControls"
+             xmlns:model="clr-namespace:BlackJackAndPoker.WPF.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <UserControl.DataContext>
+        <model:PlayerData/>
+    </UserControl.DataContext>
+    <Grid Background="red">
+        <Grid.RowDefinitions>
+            <RowDefinition Height =".2*"/>
+            <RowDefinition Height=".8*"/>
+        </Grid.RowDefinitions>
+        <Label Content="{Binding Path=Name}" FontSize="33"/>
+        <ListView Grid.Row="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Image/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </UserControl>
