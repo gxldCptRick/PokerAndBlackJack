@@ -16,5 +16,9 @@ namespace BlackJackAndPoker.WPF.ViewModels
         int AmountOfPlayersSelected { get; set; }
         event Action<ICardPlayer, WinCondition> WinningEvent;
         List<PlayerData> Players { get; }
+        void StartGame();
+        void TakeBets(ICardPlayer player, int bettingAmount);
+        void DrawCardForPlayer(ICardPlayer player);
+        void EndRound();
     }
 }

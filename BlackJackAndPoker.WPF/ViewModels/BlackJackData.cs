@@ -30,26 +30,31 @@ namespace BlackJackAndPoker.WPF.ViewModels
             MaxPlayers -= 5;
         }
 
-        public void StartGame()
+        public override void StartGame()
         {
             _controller.StartGame<PlayerData>();
             Players = _controller.Players.Cast<PlayerData>().ToList();
         }
 
-        public void HitPlayer(PlayerData player)
+        private void RunDealerTurn()
+        {
+            _controller.RunHouseTurn();
+        }
+
+        public override void DrawCardForPlayer(ICardPlayer player)
         {
             _controller.HitPlayer(player);
             player.Hand = player.Hand;
         }
 
-        public void SetInitialBetForPlayer(PlayerData player, int bettingAmount)
+        public override void EndRound()
         {
-            _controller.TakeInitialBet(player, bettingAmount);
+            RunDealerTurn();
         }
 
-        public void RunDealerTurn()
+        public override void TakeBets(ICardPlayer player, int bettingAmount)
         {
-            _controller.RunHouseTurn();
+            _controller.TakeInitialBet(player, bettingAmount);
         }
     }
 }

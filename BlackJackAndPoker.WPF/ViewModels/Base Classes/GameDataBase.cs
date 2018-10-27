@@ -32,5 +32,9 @@ namespace BlackJackAndPoker.WPF.ViewModels
             }
         }
 
+        public abstract void StartGame();
+        public abstract void DrawCardForPlayer(ICardPlayer player);
+        public abstract void EndRound();
+        public abstract void TakeBets(ICardPlayer player, int bettingAmount);
     }
 }
