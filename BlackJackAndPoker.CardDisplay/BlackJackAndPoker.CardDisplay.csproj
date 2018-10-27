@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F97958F2-6C21-4886-B467-7FD95CF30438}</ProjectGuid>
+    <ProjectGuid>{3A155825-7E91-408A-B625-8D2C5C942B1B}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>BlackJackAndPoker.WPF</RootNamespace>
-    <AssemblyName>BlackJackAndPoker.WPF</AssemblyName>
+    <RootNamespace>BlackJackAndPoker.CardDisplay</RootNamespace>
+    <AssemblyName>BlackJackAndPoker.CardDisplay</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -101,7 +101,63 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UserControls\" />
+    <Resource Include="Assets\Cards\Back\Blue.png" />
+    <Resource Include="Assets\Cards\Back\Faded.png" />
+    <Resource Include="Assets\Cards\Back\Gradient.png" />
+    <Resource Include="Assets\Cards\Back\TyeDye.png" />
+    <Resource Include="Assets\Cards\Clubs\10.png" />
+    <Resource Include="Assets\Cards\Clubs\11.png" />
+    <Resource Include="Assets\Cards\Clubs\12.png" />
+    <Resource Include="Assets\Cards\Clubs\13.png" />
+    <Resource Include="Assets\Cards\Clubs\14.png" />
+    <Resource Include="Assets\Cards\Clubs\2.png" />
+    <Resource Include="Assets\Cards\Clubs\3.png" />
+    <Resource Include="Assets\Cards\Clubs\4.png" />
+    <Resource Include="Assets\Cards\Clubs\5.png" />
+    <Resource Include="Assets\Cards\Clubs\6.png" />
+    <Resource Include="Assets\Cards\Clubs\7.png" />
+    <Resource Include="Assets\Cards\Clubs\8.png" />
+    <Resource Include="Assets\Cards\Clubs\9.png" />
+    <Resource Include="Assets\Cards\Diamonds\10.png" />
+    <Resource Include="Assets\Cards\Diamonds\11.png" />
+    <Resource Include="Assets\Cards\Diamonds\12.png" />
+    <Resource Include="Assets\Cards\Diamonds\13.png" />
+    <Resource Include="Assets\Cards\Diamonds\14.png" />
+    <Resource Include="Assets\Cards\Diamonds\2.png" />
+    <Resource Include="Assets\Cards\Diamonds\3.png" />
+    <Resource Include="Assets\Cards\Diamonds\4.png" />
+    <Resource Include="Assets\Cards\Diamonds\5.png" />
+    <Resource Include="Assets\Cards\Diamonds\6.png" />
+    <Resource Include="Assets\Cards\Diamonds\7.png" />
+    <Resource Include="Assets\Cards\Diamonds\8.png" />
+    <Resource Include="Assets\Cards\Diamonds\9.png" />
+    <Resource Include="Assets\Cards\Hearts\10.png" />
+    <Resource Include="Assets\Cards\Hearts\11.png" />
+    <Resource Include="Assets\Cards\Hearts\12.png" />
+    <Resource Include="Assets\Cards\Hearts\13.png" />
+    <Resource Include="Assets\Cards\Hearts\14.png" />
+    <Resource Include="Assets\Cards\Hearts\2.png" />
+    <Resource Include="Assets\Cards\Hearts\3.png" />
+    <Resource Include="Assets\Cards\Hearts\4.png" />
+    <Resource Include="Assets\Cards\Hearts\5.png" />
+    <Resource Include="Assets\Cards\Hearts\6.png" />
+    <Resource Include="Assets\Cards\Hearts\7.png" />
+    <Resource Include="Assets\Cards\Hearts\8.png" />
+    <Resource Include="Assets\Cards\Hearts\9.png" />
+    <Resource Include="Assets\Cards\Spades\10.png" />
+    <Resource Include="Assets\Cards\Spades\11.png" />
+    <Resource Include="Assets\Cards\Spades\12.png" />
+    <Resource Include="Assets\Cards\Spades\13.png" />
+    <Resource Include="Assets\Cards\Spades\14.png" />
+    <Resource Include="Assets\Cards\Spades\2.png" />
+    <Resource Include="Assets\Cards\Spades\3.png" />
+    <Resource Include="Assets\Cards\Spades\4.png" />
+    <Resource Include="Assets\Cards\Spades\5.png" />
+    <Resource Include="Assets\Cards\Spades\6.png" />
+    <Resource Include="Assets\Cards\Spades\7.png" />
+    <Resource Include="Assets\Cards\Spades\8.png" />
+    <Resource Include="Assets\Cards\Spades\9.png" />
+    <Resource Include="Assets\Tables\Light.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

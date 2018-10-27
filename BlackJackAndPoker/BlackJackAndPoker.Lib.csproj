@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B6AFE301-DCA3-437D-8271-250ED16D81FA}</ProjectGuid>
+    <ProjectGuid>{74444102-C26D-4308-9D0C-FBED056E58BB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BlackJackAndPoker</RootNamespace>
@@ -51,6 +51,65 @@
     <Compile Include="Models\Deck.cs" />
     <Compile Include="Models\ICardPlayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Cards\Back\Blue.png" />
+    <Content Include="Assets\Cards\Back\Faded.png" />
+    <Content Include="Assets\Cards\Back\Gradient.png" />
+    <Content Include="Assets\Cards\Back\TyeDye.png" />
+    <Content Include="Assets\Cards\Clubs\10.png" />
+    <Content Include="Assets\Cards\Clubs\11.png" />
+    <Content Include="Assets\Cards\Clubs\12.png" />
+    <Content Include="Assets\Cards\Clubs\13.png" />
+    <Content Include="Assets\Cards\Clubs\14.png" />
+    <Content Include="Assets\Cards\Clubs\2.png" />
+    <Content Include="Assets\Cards\Clubs\3.png" />
+    <Content Include="Assets\Cards\Clubs\4.png" />
+    <Content Include="Assets\Cards\Clubs\5.png" />
+    <Content Include="Assets\Cards\Clubs\6.png" />
+    <Content Include="Assets\Cards\Clubs\7.png" />
+    <Content Include="Assets\Cards\Clubs\8.png" />
+    <Content Include="Assets\Cards\Clubs\9.png" />
+    <Content Include="Assets\Cards\Diamonds\10.png" />
+    <Content Include="Assets\Cards\Diamonds\11.png" />
+    <Content Include="Assets\Cards\Diamonds\12.png" />
+    <Content Include="Assets\Cards\Diamonds\13.png" />
+    <Content Include="Assets\Cards\Diamonds\14.png" />
+    <Content Include="Assets\Cards\Diamonds\2.png" />
+    <Content Include="Assets\Cards\Diamonds\3.png" />
+    <Content Include="Assets\Cards\Diamonds\4.png" />
+    <Content Include="Assets\Cards\Diamonds\5.png" />
+    <Content Include="Assets\Cards\Diamonds\6.png" />
+    <Content Include="Assets\Cards\Diamonds\7.png" />
+    <Content Include="Assets\Cards\Diamonds\8.png" />
+    <Content Include="Assets\Cards\Diamonds\9.png" />
+    <Content Include="Assets\Cards\Hearts\10.png" />
+    <Content Include="Assets\Cards\Hearts\11.png" />
+    <Content Include="Assets\Cards\Hearts\12.png" />
+    <Content Include="Assets\Cards\Hearts\13.png" />
+    <Content Include="Assets\Cards\Hearts\14.png" />
+    <Content Include="Assets\Cards\Hearts\2.png" />
+    <Content Include="Assets\Cards\Hearts\3.png" />
+    <Content Include="Assets\Cards\Hearts\4.png" />
+    <Content Include="Assets\Cards\Hearts\5.png" />
+    <Content Include="Assets\Cards\Hearts\6.png" />
+    <Content Include="Assets\Cards\Hearts\7.png" />
+    <Content Include="Assets\Cards\Hearts\8.png" />
+    <Content Include="Assets\Cards\Hearts\9.png" />
+    <Content Include="Assets\Cards\Spades\10.png" />
+    <Content Include="Assets\Cards\Spades\11.png" />
+    <Content Include="Assets\Cards\Spades\12.png" />
+    <Content Include="Assets\Cards\Spades\13.png" />
+    <Content Include="Assets\Cards\Spades\14.png" />
+    <Content Include="Assets\Cards\Spades\2.png" />
+    <Content Include="Assets\Cards\Spades\3.png" />
+    <Content Include="Assets\Cards\Spades\4.png" />
+    <Content Include="Assets\Cards\Spades\5.png" />
+    <Content Include="Assets\Cards\Spades\6.png" />
+    <Content Include="Assets\Cards\Spades\7.png" />
+    <Content Include="Assets\Cards\Spades\8.png" />
+    <Content Include="Assets\Cards\Spades\9.png" />
+    <Content Include="Assets\Tables\Light.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
