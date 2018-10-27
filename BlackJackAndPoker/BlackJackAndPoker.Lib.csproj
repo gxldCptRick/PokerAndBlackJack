@@ -109,6 +109,9 @@
     <Content Include="Assets\Cards\Spades\7.png" />
     <Content Include="Assets\Cards\Spades\8.png" />
     <Content Include="Assets\Cards\Spades\9.png" />
+    <Resource Include="Assets\Chips\1.png" />
+    <Resource Include="Assets\Chips\10.png" />
+    <Resource Include="Assets\Chips\5.png" />
     <Content Include="Assets\Tables\Light.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
