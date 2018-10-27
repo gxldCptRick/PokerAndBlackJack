@@ -25,5 +25,20 @@ namespace BlackJackAndPoker.WPF.Views
         }
 
         public event Action<PageRequest> PageChangeRequested;
+
+        private void Bet_1(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("User bet 1");
+        }
+
+        private void Bet_5(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("User bet 5");
+        }
+
+        private void Bet_10(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("User bet 10");
+        }
     }
 }

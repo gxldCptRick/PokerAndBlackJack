@@ -59,11 +59,12 @@
     </ApplicationDefinition>
     <Compile Include="Converters\CardToBackConverter.cs" />
     <Compile Include="Converters\CardToImageConverter.cs" />
+    <Compile Include="ViewModels\Base Classes\GameDataBase.cs" />
+    <Compile Include="ViewModels\Base Classes\IGameData.cs" />
+    <Compile Include="ViewModels\Base Classes\ViewModelBase.cs" />
     <Compile Include="ViewModels\BlackJackData.cs" />
-    <Compile Include="ViewModels\GameDataBase.cs" />
-    <Compile Include="ViewModels\IGameData.cs" />
+    <Compile Include="ViewModels\MainData.cs" />
     <Compile Include="ViewModels\PlayerData.cs" />
-    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>

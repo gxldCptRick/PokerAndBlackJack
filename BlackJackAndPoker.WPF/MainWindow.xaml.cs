@@ -17,7 +17,7 @@ namespace BlackJackAndPoker.WPF
         {
             InitializeComponent();
             _pagesNavigated = new Dictionary<Type, Page>();
-            ChangePage(PageRequest.MainPage);
+            ChangePage(PageRequest.BlackJackTable);
         }
 
         private IDictionary<Type, Page> _pagesNavigated;
@@ -53,6 +53,9 @@ namespace BlackJackAndPoker.WPF
                     break;
                 case PageRequest.GamePage:
                     pageToChangeTo = GeneratePage<GamePage>();
+                    break;
+                case PageRequest.BlackJackTable:
+                    pageToChangeTo = GeneratePage<BlackJackTable>();
                     break;
                 default:
                     throw new ArgumentException("The page you requested was not supported.",nameof(pageRequested));
