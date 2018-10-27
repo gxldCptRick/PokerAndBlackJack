@@ -13,5 +13,9 @@ namespace BlackJackAndPoker.ConsoleGame.Models
         public ConsoleCardPlayer()
         {
         }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

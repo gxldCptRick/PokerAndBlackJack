@@ -38,8 +38,16 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
             gameIsRunning = true;
             do
             {
+                foreach (var player in players)
+                {
+                    if (player.AmountOfMonies > 1)
+                    {
+                        int initialBet = ConsoleIO.PromptForInt("Take Initial Bet", 1, player.AmountOfMonies);
+                        c.TakeInitialBet(player, initialBet);
+                    }
+                }
                 Console.WriteLine("You New Round...");
-                for (int i = 0; i < players.Count && c.IsGameOver; i++)
+                for (int i = 0; i < players.Count && !c.IsGameOver; i++)
                 {
                     currentPlayer = players[i];
                     RunTurn();
@@ -55,19 +63,23 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
             do
             {
                 Console.WriteLine($"{currentPlayer}'s Turn ");
+                currentPlayer.Hand.ForEach(c => Console.Write($"{c}, "));
+                Console.WriteLine();
                 int choice = ConsoleIO.PromptForMenuSelection(menuSelection, false);
                 switch (choice)
                 {
                     case 1:
                         c.HitPlayer(currentPlayer);
+
                         break;
                     case 2:
                         turnActive = false;
-                        Console.WriteLine($"{}");
                         break;
                     default:
-                        throw new ArgumentOutOfRangeException(nameof(choice),"You gotta select a value between one and two.");
+                        throw new ArgumentOutOfRangeException(nameof(choice), "You gotta select a value between one and two.");
                 }
+
+                Console.WriteLine($"{c.CountHand(currentPlayer.Hand)}");
             } while (turnActive);
         }
 
@@ -77,16 +89,8 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
             c = new BlackJackController();
             c.Winner += (winner, winCondition) =>
             {
-                if (winner != c.House)
-                {
-                    Console.WriteLine($"{winner} has Won!!!");
-                }
-                else
-                {
-                    Console.WriteLine($"the house has Won!!!");
-                }
-
-                gameIsRunning = false;
+                Console.WriteLine($"{winner} has won.");
+                Console.ReadKey();
             };
 
             c.Bust += (busted) =>
@@ -95,14 +99,15 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
                 {
                     turnActive = false;
                 }
+                Console.WriteLine($"{busted} has busted");
             };
 
             c.StartGame<ConsoleCardPlayer>(amountOfPlayers);
             players = c.Players.Cast<ConsoleCardPlayer>().ToList();
+
             foreach (var player in players)
             {
-                int initialBet = ConsoleIO.PromptForInt("Take Initial Bet", 1, player.AmountOfMonies);
-                c.TakeInitialBet(player, initialBet);
+                player.Name = ConsoleIO.PromptForInput("Enter A Name", allowEmpty: false);
             }
         }
     }
