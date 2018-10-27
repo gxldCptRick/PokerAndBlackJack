@@ -1,6 +1,7 @@
 ﻿using BlackJackAndPoker.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,7 @@ namespace BlackJackAndPoker.CardDisplay
         public MainWindow()
         {
             InitializeComponent();
+            d.ShuffleCards();
             activeDeck.ItemsSource = d.Cards;
             activeDeck.SelectedIndex = 0;
             deckBackground.ItemsSource = backgrounds;
@@ -37,8 +39,8 @@ namespace BlackJackAndPoker.CardDisplay
         {
             Card c = (Card)activeDeck.SelectedItem;
             var cRank = (int)c.Rank;
-            var cSuit = c.Suit.ToString()+"s";
-            var faceSource = "../../Assets/Cards/"+ cSuit + "/" + cRank + ".png";
+            var cSuit = c.Suit.ToString() + "s";
+            var faceSource = $"../../Assets/Cards/{cSuit}/{cRank}.png";
 
             var selectedBack = deckBackground.SelectedItem;
             if (selectedBack == null)
@@ -46,7 +48,7 @@ namespace BlackJackAndPoker.CardDisplay
                 selectedBack = "Blue";
             }
 
-            var backgroundSource = "../../Assets/Cards/Back/" + selectedBack +".png";
+            var backgroundSource = $"../../Assets/Cards/Back/{selectedBack}.png";
 
             displayedCard.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(faceSource);
             displayedCardBack.Source = (ImageSource)new ImageSourceConverter().ConvertFrom(backgroundSource);

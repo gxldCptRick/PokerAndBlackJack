@@ -14,5 +14,10 @@ namespace BlackJackAndPoker.Models
         public CardPlayer()
         {
         }
+
+        public override string ToString()
+        {
+            return "House";
+        }
     }
 }

@@ -16,12 +16,12 @@ namespace BlackJackAndPoker.Controllers
         {
             get
             {
-                bool isGameOver = false;
-                for (int i = 0; i < Players.Count && !isGameOver; i++)
+                bool gameIsRunning = false;
+                for (int i = 0; i < Players.Count && !gameIsRunning; i++)
                 {
-                    isGameOver = Players[i].AmountOfMonies > 0;
+                    gameIsRunning = Players[i].AmountOfMonies > -50;
                 }
-                return isGameOver;
+                return !gameIsRunning;
             }
         }
 
@@ -37,8 +37,7 @@ namespace BlackJackAndPoker.Controllers
 
         public void StartGame<T>(int amountOfPlayers = 1) where T : ICardPlayer, new()
         {
-            deck = new Deck();
-            deck.ShuffleCards();
+            RemakeDeck();
             Players.Clear();
             for (int i = 0; i < amountOfPlayers; i++)
             {
@@ -50,6 +49,12 @@ namespace BlackJackAndPoker.Controllers
             }
         }
 
+        private void RemakeDeck()
+        {
+            deck = new Deck();
+            deck.ShuffleCards();
+        }
+
         public void RunHouseTurn()
         {
             TakeInitialBet(_house, 100);
@@ -57,6 +62,48 @@ namespace BlackJackAndPoker.Controllers
             {
                 HitPlayer(_house);
             }
+
+            DetermineWinners();
+        }
+
+        private void DetermineWinners()
+        {
+            foreach (var player in Players)
+            {
+                var playerTotal = CountHand(player.Hand);
+                var houseTotal = CountHand(House.Hand);
+                if (houseTotal > 21)
+                {
+                    if (playerTotal <= 21)
+                    {
+                        Winner?.Invoke(player, WinCondition.Win);
+                    }
+                    else
+                    {
+                        Winner?.Invoke(House, WinCondition.Draw);
+                    }
+                }
+                else if (playerTotal > 21)
+                {
+                    Winner?.Invoke(House, WinCondition.Win);
+                }
+                else
+                {
+                    if (playerTotal > houseTotal)
+                    {
+                        Winner?.Invoke(player, WinCondition.Win);
+                    }
+                    else if (houseTotal > playerTotal)
+                    {
+                        Winner?.Invoke(House, WinCondition.Win);
+                    }
+                    else
+                    {
+                        Winner?.Invoke(House, WinCondition.Draw);
+                    }
+                }
+            }
+                this.RemakeDeck();
         }
 
         public void TakeInitialBet(ICardPlayer playerTakingTurn, int bet)
@@ -73,6 +120,7 @@ namespace BlackJackAndPoker.Controllers
                 cardPlayer.Hand.Add(deck.DrawCard());
                 if (CountHand(cardPlayer.Hand) > 21)
                 {
+                    Console.WriteLine("Firing Busted...");
                     Bust?.Invoke(cardPlayer);
                 }
             }
@@ -111,7 +159,7 @@ namespace BlackJackAndPoker.Controllers
                     //add the 11 for the ace 
                     totalAfterAces += 11;
                 }
-                else if(totalAfterAces <= 9)
+                else if (totalAfterAces <= 9)
                 {
                     totalAfterAces += 11;
                     amountOfAces--;
