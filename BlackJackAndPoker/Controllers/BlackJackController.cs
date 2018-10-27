@@ -43,7 +43,7 @@ namespace BlackJackAndPoker.Controllers
             {
                 var player = new T()
                 {
-                    AmountOfMonies = 200
+                    AmountOfMonies = 20
                 };
                 Players.Add(player);
             }
