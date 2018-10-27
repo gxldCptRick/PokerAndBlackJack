@@ -30,13 +30,13 @@
             <Label Content="Bets:" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" HorizontalAlignment="Center"></Label>
             
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Background="Transparent">
+                <Button Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
                     <Image Source="../Assets/Chips/1.png" Width="50"></Image>
                 </Button>
-                <Button Background="Transparent">
+                <Button Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
                     <Image Source="../Assets/Chips/5.png" Width="50"></Image>
                 </Button>
-                <Button Background="Transparent">
+                <Button Background="Transparent" BorderThickness="0" BorderBrush="Transparent">
                     <Image Source="../Assets/Chips/10.png" Width="50"></Image>
                 </Button>
             </StackPanel>
