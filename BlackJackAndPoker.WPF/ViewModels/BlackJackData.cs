@@ -26,6 +26,8 @@ namespace BlackJackAndPoker.WPF.ViewModels
         public BlackJackData()
         {
             _controller = new BlackJackController();
+            MinPlayers = 1;
+            MaxPlayers -= 5;
         }
 
         public void StartGame()

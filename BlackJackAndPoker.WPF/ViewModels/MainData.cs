@@ -1,10 +1,18 @@
-﻿using BlackJackAndPoker.WPF.ViewModel;
-
-namespace BlackJackAndPoker.WPF.ViewModels
+﻿namespace BlackJackAndPoker.WPF.ViewModels
 {
-    internal class MainData
+    internal class MainData : ViewModelBase
     {
-        public IGameData GameData { get; set; }
+        private IGameData _gameData;
+
+        public IGameData GameData
+        {
+            get => _gameData;
+            set
+            {
+                _gameData = value;
+                PropertyChanging();
+            }
+        }
 
         public MainData()
         {

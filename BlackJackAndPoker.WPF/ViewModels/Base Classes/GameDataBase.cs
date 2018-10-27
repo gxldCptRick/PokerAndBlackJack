@@ -1,15 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using BlackJackAndPoker.Controllers;
+﻿using BlackJackAndPoker.Controllers;
 using BlackJackAndPoker.Models;
+using System;
+using System.Collections.Generic;
 
 namespace BlackJackAndPoker.WPF.ViewModels
 {
     internal abstract class GameDataBase : ViewModelBase, IGameData
     {
         private List<PlayerData> _players;
-        public int MinPlayers { get; }
-        public int MaxPlayers { get; }
+        private int _amountOfPlayersSelected;
+
+        public int MinPlayers { get; protected set; }
+        public int MaxPlayers { get; protected set; }
+        public int AmountOfPlayersSelected
+        {
+            get => _amountOfPlayersSelected;
+            set
+            {
+                _amountOfPlayersSelected = value;
+                PropertyChanging();
+            }
+        }
         public abstract event Action<ICardPlayer, WinCondition> WinningEvent;
         public List<PlayerData> Players
         {
@@ -20,5 +31,6 @@ namespace BlackJackAndPoker.WPF.ViewModels
                 PropertyChanging();
             }
         }
+
     }
 }
