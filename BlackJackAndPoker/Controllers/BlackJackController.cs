@@ -132,16 +132,12 @@ namespace BlackJackAndPoker.Controllers
 
         public void TakeInitialBet(ICardPlayer playerTakingTurn, int amountBetting)
         {
-            if (amountBetting > 0)
-            {
-                Bets[playerTakingTurn] = amountBetting;
-                playerTakingTurn.AmountOfMonies -= amountBetting;
-                playerTakingTurn.Hand = GetStartingHand();
-            }
-            else
-            {
-                throw new ArgumentOutOfRangeException(nameof(amountBetting), "Amount betting must be greater than zero.");
-            }
+            if (amountBetting <= 0) throw new ArgumentOutOfRangeException(nameof(amountBetting), "Amount betting must be greater than zero.");
+
+            Bets[playerTakingTurn] = amountBetting;
+            playerTakingTurn.AmountOfMonies -= amountBetting;
+            playerTakingTurn.Hand = GetStartingHand();
+
         }
 
         public void HitPlayer(ICardPlayer cardPlayer)
