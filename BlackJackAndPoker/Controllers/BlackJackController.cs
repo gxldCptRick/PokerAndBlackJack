@@ -63,54 +63,85 @@ namespace BlackJackAndPoker.Controllers
                 HitPlayer(_house);
             }
 
-            DetermineWinners();
+            CheckForWinners();
         }
 
-        private void DetermineWinners()
+        private void CheckForWinners()
         {
             foreach (var player in Players)
             {
-                var playerTotal = CountHand(player.Hand);
-                var houseTotal = CountHand(House.Hand);
-                if (houseTotal > 21)
+                CalculateWhoWon(player);
+            }
+            RemakeDeck();
+        }
+
+        private void CalculateWhoWon(ICardPlayer player)
+        {
+            var houseTotal = CountHand(_house.Hand);
+            var playerTotal = CountHand(player.Hand);
+            if (houseTotal > 21)
+            {
+                if (playerTotal <= 21)
                 {
-                    if (playerTotal <= 21)
+                    if (playerTotal == 21)
                     {
-                        Winner?.Invoke(player, WinCondition.Win);
+                        Winner?.Invoke(player, WinCondition.Blackjack);
+                    }
+                    else if (player.Hand.Count >= 5)
+                    {
+                        Winner?.Invoke(player, WinCondition.Five_Card_Charlie);
                     }
                     else
                     {
-                        Winner?.Invoke(House, WinCondition.Draw);
+                        Winner?.Invoke(player, WinCondition.Win);
                     }
-                }
-                else if (playerTotal > 21)
-                {
-                    Winner?.Invoke(House, WinCondition.Win);
                 }
                 else
                 {
-                    if (playerTotal > houseTotal)
-                    {
-                        Winner?.Invoke(player, WinCondition.Win);
-                    }
-                    else if (houseTotal > playerTotal)
-                    {
-                        Winner?.Invoke(House, WinCondition.Win);
-                    }
-                    else
-                    {
-                        Winner?.Invoke(House, WinCondition.Draw);
-                    }
+                    Winner?.Invoke(player, WinCondition.Draw);
                 }
             }
-                this.RemakeDeck();
+            else if (playerTotal > 21)
+            {
+                Winner?.Invoke(player, WinCondition.IsThisLoss);
+            }
+            else
+            {
+                if (player.Hand.Count >= 5)
+                {
+                    Winner?.Invoke(player, WinCondition.Five_Card_Charlie);
+                }
+                else if (playerTotal == 21)
+                {
+                    Winner?.Invoke(player, WinCondition.Blackjack);
+                }
+                else if (playerTotal > houseTotal)
+                {
+                    Winner?.Invoke(player, WinCondition.Win);
+                }
+                else if (houseTotal > playerTotal)
+                {
+                    Winner?.Invoke(player, WinCondition.IsThisLoss);
+                }
+                else
+                {
+                    Winner?.Invoke(player, WinCondition.Draw);
+                }
+            }
         }
 
-        public void TakeInitialBet(ICardPlayer playerTakingTurn, int bet)
+        public void TakeInitialBet(ICardPlayer playerTakingTurn, int amountBetting)
         {
-            Bets[playerTakingTurn] = bet;
-            playerTakingTurn.AmountOfMonies -= bet;
-            playerTakingTurn.Hand = GetStartingHand();
+            if (amountBetting > 0)
+            {
+                Bets[playerTakingTurn] = amountBetting;
+                playerTakingTurn.AmountOfMonies -= amountBetting;
+                playerTakingTurn.Hand = GetStartingHand();
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException(nameof(amountBetting), "Amount betting must be greater than zero.");
+            }
         }
 
         public void HitPlayer(ICardPlayer cardPlayer)
@@ -120,7 +151,6 @@ namespace BlackJackAndPoker.Controllers
                 cardPlayer.Hand.Add(deck.DrawCard());
                 if (CountHand(cardPlayer.Hand) > 21)
                 {
-                    Console.WriteLine("Firing Busted...");
                     Bust?.Invoke(cardPlayer);
                 }
             }
@@ -148,33 +178,31 @@ namespace BlackJackAndPoker.Controllers
 
         private int AccountForAces(int runningHandTotal, int amountOfAces)
         {
-            int totalAfterAces = runningHandTotal;
+            int currentlyRunningTotal = runningHandTotal;
             //if amount before aces is still less than or equal 21 and we have ace
 
-            if (totalAfterAces <= 21 && amountOfAces > 0)
+            if (currentlyRunningTotal <= 21 && amountOfAces > 0)
             {
-                //if the amount left is less than 11 add the ace as 11
-                if (totalAfterAces == 10 && amountOfAces == 1)
+                if (currentlyRunningTotal == 10 && amountOfAces == 1)
                 {
-                    //add the 11 for the ace 
-                    totalAfterAces += 11;
+                    currentlyRunningTotal += 11;
                 }
-                else if (totalAfterAces <= 9)
+                else if (currentlyRunningTotal <= 9)
                 {
-                    totalAfterAces += 11;
+                    currentlyRunningTotal += 11;
                     amountOfAces--;
                     if (amountOfAces > 0)
                     {
-                        totalAfterAces += amountOfAces;
+                        currentlyRunningTotal += amountOfAces;
                     }
                 }
                 else
                 {
                     //just add the aces as one
-                    totalAfterAces += amountOfAces;
+                    currentlyRunningTotal += amountOfAces;
                 }
             }
-            return totalAfterAces;
+            return currentlyRunningTotal;
         }
 
         private int DetermineCardValue(Rank rank)
