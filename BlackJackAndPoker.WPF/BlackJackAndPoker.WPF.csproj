@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -57,7 +59,11 @@
     </ApplicationDefinition>
     <Compile Include="Converters\CardToBackConverter.cs" />
     <Compile Include="Converters\CardToImageConverter.cs" />
+    <Compile Include="ViewModels\Base Classes\GameDataBase.cs" />
+    <Compile Include="ViewModels\Base Classes\IGameData.cs" />
+    <Compile Include="ViewModels\Base Classes\ViewModelBase.cs" />
     <Compile Include="ViewModels\BlackJackData.cs" />
+    <Compile Include="ViewModels\MainData.cs" />
     <Compile Include="ViewModels\Base Classes\GameDataBase.cs" />
     <Compile Include="ViewModels\Base Classes\IGameData.cs" />
     <Compile Include="ViewModels\MainData.cs" />
@@ -76,6 +82,9 @@
     </Compile>
     <Compile Include="Views\UserControls\PlayerControl.xaml.cs">
       <DependentUpon>PlayerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BlackJackTable.xaml.cs">
+      <DependentUpon>BlackJackTable.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -102,6 +111,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserControls\PlayerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BlackJackTable.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,6 +222,9 @@
     <Resource Include="Assets\Cards\Spades\7.png" />
     <Resource Include="Assets\Cards\Spades\8.png" />
     <Resource Include="Assets\Cards\Spades\9.png" />
+    <Resource Include="Assets\Chips\1.png" />
+    <Resource Include="Assets\Chips\10.png" />
+    <Resource Include="Assets\Chips\5.png" />
     <Content Include="Assets\Tables\Light.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

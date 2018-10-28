@@ -4,6 +4,7 @@
     {
         MainPage,
         SettingsPage,
-        GamePage
+        GamePage,
+        BlackJackTable
     }
 }

@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\GameOfBlackJack.cs" />
+    <Compile Include="Controllers\GameOfPoker.cs" />
     <Compile Include="Models\ConsoleCardPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
