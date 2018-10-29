@@ -28,17 +28,27 @@ namespace BlackJackAndPoker.WPF.Views
 
         private void Bet_1(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("User bet 1");
+            MessageBox.Show("User bets 1");
         }
 
         private void Bet_5(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("User bet 5");
+            MessageBox.Show("User bets 5");
         }
 
         private void Bet_10(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("User bet 10");
+            MessageBox.Show("User bets 10");
+        }
+
+        private void Hit(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("User hits");
+        }
+
+        private void Stand(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("User stands");
         }
     }
 }
