@@ -11,6 +11,7 @@ namespace BlackJackAndPoker.Models
             set => _amountOfMonies = value;
         }
         public List<Card> Hand { get; set; }
+        public int LastBet { get; set; }
         public CardPlayer()
         {
         }

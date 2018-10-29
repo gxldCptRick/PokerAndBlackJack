@@ -10,9 +10,9 @@ namespace BlackJackAndPoker.Controllers
     public class PokerController
     {
         private int moneyPot;
+        private int currentBet;
         private Deck deck;
         public List<ICardPlayer> Players { get; private set; }
-        public List<ICardPlayer> ActivePlayers { get; private set; }
 
         public PokerController()
         {
@@ -32,8 +32,9 @@ namespace BlackJackAndPoker.Controllers
                     AmountOfMonies = 100
                 };
                 Players.Add(player);
-                ActivePlayers.Add(player);
             }
+
+            currentBet = 0;
 
             Ante();
             Deal();
@@ -77,14 +78,40 @@ namespace BlackJackAndPoker.Controllers
             }
         }
 
-        public void PlayRound()
+        public void Call(ICardPlayer player)
         {
+            player.AmountOfMonies -= (currentBet - player.LastBet);
+            moneyPot += (currentBet - player.LastBet);
 
+            player.LastBet = currentBet;
+
+            //Prevents going into the negative when going all in on a high raise
+            if (player.AmountOfMonies < 0)
+            {
+                player.AmountOfMonies = 0;
+            }
         }
 
-        public void Bet()
+        public void AllIn(ICardPlayer player)
         {
+            moneyPot += player.AmountOfMonies;
+            player.AmountOfMonies = 0;
+        }
 
+        public void Raise(ICardPlayer player, int raiseAmount)
+        {
+            currentBet = raiseAmount;
+            Call(player);
+        }
+
+        public void EndBettingPhase()
+        {
+            currentBet = 0;
+            
+            foreach (ICardPlayer player in Players)
+            {
+                player.LastBet = 0;
+            }
         }
     }
 }
