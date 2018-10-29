@@ -6,5 +6,6 @@ namespace BlackJackAndPoker.Models
     {
         int AmountOfMonies { get; set; }
         List<Card> Hand { get; set; }
+        int LastBet { get; set; }
     }
 }
