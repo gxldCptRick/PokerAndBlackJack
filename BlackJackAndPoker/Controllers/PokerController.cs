@@ -10,6 +10,7 @@ namespace BlackJackAndPoker.Controllers
     public class PokerController
     {
         private int moneyPot;
+        private int currentBet;
         private Deck deck;
         public List<ICardPlayer> Players { get; private set; }
 
@@ -75,6 +76,17 @@ namespace BlackJackAndPoker.Controllers
             }
         }
 
+        public void Call(ICardPlayer player)
+        {
+            player.AmountOfMonies -= currentBet;
+            moneyPot += currentBet;
+
+            //Prevents going into the negative when going all in on a high raise
+            if (player.AmountOfMonies < 0)
+            {
+                player.AmountOfMonies = 0;
+            }
+        }
 
     }
 }
