@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BlackJackAndPoker.WPF.ViewModels;
 using BlackJackAndPoker.WPF.Views.Enums;
 using BlackJackAndPoker.WPF.Views.Interfaces;
 
@@ -25,8 +26,33 @@ namespace BlackJackAndPoker.WPF.Views
         public SettingsPage()
         {
             InitializeComponent();
+            
         }
 
         public event Action<PageRequest> PageChangeRequested;
+
+        private void AmountOfPlayers_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.AmountOfPlayers.ItemsSource = Enumerable.Range(1, 5);
+            this.AmountOfPlayers.SelectedItem = 1;
+        }
+
+        private void BlackJacksonButtonClicked(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext is MainData data)
+            {
+                data.GameData = new BlackJackData();
+            }
+            PageChangeRequested?.Invoke(PageRequest.GamePage);
+        }
+
+        private void PakerButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext is MainData data)
+            {
+                data.GameData = new PokerData();
+            }
+            PageChangeRequested?.Invoke(PageRequest.GamePage);
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace BlackJackAndPoker.ConsoleGame.Controllers
         private BlackJackController c;
         private bool turnActive;
         private CardPlayer currentPlayer;
-        private bool gameIsRunning;
+       // private bool gameIsRunning;
 
         public void Start()
         {
