@@ -12,6 +12,7 @@ namespace BlackJackAndPoker.Controllers
         private int moneyPot;
         private Deck deck;
         public List<ICardPlayer> Players { get; private set; }
+        public List<ICardPlayer> ActivePlayers { get; private set; }
 
         public PokerController()
         {
@@ -31,6 +32,7 @@ namespace BlackJackAndPoker.Controllers
                     AmountOfMonies = 100
                 };
                 Players.Add(player);
+                ActivePlayers.Add(player);
             }
 
             Ante();
@@ -75,6 +77,14 @@ namespace BlackJackAndPoker.Controllers
             }
         }
 
+        public void PlayRound()
+        {
 
+        }
+
+        public void Bet()
+        {
+
+        }
     }
 }
