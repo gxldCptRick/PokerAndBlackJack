@@ -45,6 +45,8 @@ namespace BlackJackAndPoker.WPF.ViewModels
                 PropertyChanging();
             }
         }
+
+        public int LastBet { get; set; }
         #endregion
 
         public PlayerData()
