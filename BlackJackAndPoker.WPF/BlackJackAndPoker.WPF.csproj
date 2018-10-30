@@ -65,6 +65,7 @@
     <Compile Include="ViewModels\BlackJackData.cs" />
     <Compile Include="ViewModels\MainData.cs" />
     <Compile Include="ViewModels\PlayerData.cs" />
+    <Compile Include="ViewModels\PokerData.cs" />
     <Compile Include="Views\PokerTable.xaml.cs">
       <DependentUpon>PokerTable.xaml</DependentUpon>
     </Compile>
