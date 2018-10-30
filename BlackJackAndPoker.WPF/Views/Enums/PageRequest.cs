@@ -5,6 +5,7 @@
         MainPage,
         SettingsPage,
         GamePage,
-        BlackJackTable
+        BlackJackTable,
+        PokerTable
     }
 }

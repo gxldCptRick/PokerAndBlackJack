@@ -65,6 +65,9 @@
     <Compile Include="ViewModels\BlackJackData.cs" />
     <Compile Include="ViewModels\MainData.cs" />
     <Compile Include="ViewModels\PlayerData.cs" />
+    <Compile Include="Views\PokerTable.xaml.cs">
+      <DependentUpon>PokerTable.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\PokerTable.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\GamePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
