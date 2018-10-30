@@ -17,9 +17,9 @@ using System.Windows.Shapes;
 
 namespace BlackJackAndPoker.WPF.Views
 {
-    public partial class BlackJackTable : Page, IPageNavigator
+    public partial class PokerTable : Page, IPageNavigator
     {
-        public BlackJackTable()
+        public PokerTable()
         {
             InitializeComponent();
         }
@@ -41,14 +41,19 @@ namespace BlackJackAndPoker.WPF.Views
             MessageBox.Show("User bets 10");
         }
 
-        private void Hit(object sender, RoutedEventArgs e)
+        private void Call(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("User hits");
+            MessageBox.Show("User calls");
         }
 
-        private void Stand(object sender, RoutedEventArgs e)
+        private void Fold(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("User stands");
+            MessageBox.Show("User folds");
+        }
+
+        private void Raise(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("User raises");
         }
     }
 }

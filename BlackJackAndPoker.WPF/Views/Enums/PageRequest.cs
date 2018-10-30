@@ -7,5 +7,6 @@
         GamePage,
         BlackJackTable,
         Halp
+        PokerTable
     }
 }

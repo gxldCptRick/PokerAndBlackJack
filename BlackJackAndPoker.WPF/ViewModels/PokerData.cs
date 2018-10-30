@@ -1,43 +1,45 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using BlackJackAndPoker.Controllers;
+﻿using BlackJackAndPoker.Controllers;
 using BlackJackAndPoker.Models;
-using BlackJackAndPoker.WPF.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BlackJackAndPoker.WPF.ViewModels
 {
-    internal class PokerData : IGameData
+    internal class PokerData : GameDataBase
     {
-        public int MinPlayers => throw new NotImplementedException();
+        private readonly PokerController _controller;
+        private List<PlayerData> _players;
 
-        public int MaxPlayers => throw new NotImplementedException();
+        public override event Action<ICardPlayer, WinCondition> WinningEvent;
 
-        public int AmountOfPlayersSelected { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public List<PlayerData> Players => throw new NotImplementedException();
-
-        public event Action<ICardPlayer, WinCondition> WinningEvent;
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public void DrawCardForPlayer(ICardPlayer player)
+        public override void DrawCardForPlayer(ICardPlayer player)
         {
             throw new NotImplementedException();
         }
 
-        public void EndRound()
+        public override void EndRound()
         {
             throw new NotImplementedException();
         }
 
-        public void StartGame()
+        public override void StartGame()
         {
-            throw new NotImplementedException();
+            _controller.StartGame<PlayerData>();
+            Players = _controller.Players.Cast<PlayerData>().ToList();
         }
 
-        public void TakeBets(ICardPlayer player, int bettingAmount)
+        public override void TakeBets(ICardPlayer player, int bettingAmount)
         {
-            throw new NotImplementedException();
+            player.AmountOfMonies -= bettingAmount;
+            
+        }
+
+        public void DiscardAndDraw(ICardPlayer player, List<Card> discardedCards)
+        {
+            _controller.Discard(player, discardedCards);
         }
     }
 }
