@@ -14,12 +14,10 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Content="YOU HAD SOME WHAT UP" FontWeight="ExtraBold" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button Grid.Row="1" Content="pretty girl to want my olives" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="22"/>
-        <Button Grid.Row="2" Content="lily... lily i like olives... we'll make it work" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="22"/>
-        <Button Grid.Row="3" Content="go ho ho and a bottle of rum" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="22"/>
-        <Button Grid.Row="4" Content="Exit" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50 20" Click="ExitButtonClicked"/>
+        <Label Content="Card Games Or Something Like That" FontWeight="ExtraBold" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button Grid.Row="1" Content="sHOOT mE" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="22" Click="gOTsHOT"/>
+        <Button Grid.Row="2" Content="HALP" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="22" Click="Button_Click"/>
+        <Button Grid.Row="3" Content="Exit" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="50 20" Click="ExitButtonClicked"/>
     </Grid>
 </Page>

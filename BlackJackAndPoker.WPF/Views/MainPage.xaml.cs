@@ -33,5 +33,15 @@ namespace BlackJackAndPoker.WPF.Views
         {
             Application.Current.Shutdown();
         }
+
+        private void gOTsHOT(object sender, RoutedEventArgs e)
+        {
+            PageChangeRequested?.Invoke(PageRequest.SettingsPage);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            PageChangeRequested?.Invoke(PageRequest.Halp);
+        }
     }
 }

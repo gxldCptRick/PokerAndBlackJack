@@ -17,6 +17,7 @@ namespace BlackJackAndPoker.WPF
         {
             InitializeComponent();
             _pagesNavigated = new Dictionary<Type, Page>();
+            ChangePage(PageRequest.MainPage);
             ChangePage(PageRequest.PokerTable);
         }
 
@@ -56,6 +57,10 @@ namespace BlackJackAndPoker.WPF
                     break;
                 case PageRequest.BlackJackTable:
                     pageToChangeTo = GeneratePage<BlackJackTable>();
+                    break;
+                case PageRequest.Halp:
+                    var window = new HelpWindow();
+                    window.Show();
                     break;
                 case PageRequest.PokerTable:
                     pageToChangeTo = GeneratePage<PokerTable>();
