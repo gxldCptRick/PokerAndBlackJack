@@ -26,6 +26,12 @@ namespace BlackJackAndPoker.Controllers
         }
 
         public event Action<ICardPlayer, WinCondition> Winner;
+        public void Win(ICardPlayer player, WinCondition condition)
+        {
+            int initialBet = Bets[player];
+            player.AmountOfMonies += initialBet * (int) condition;
+        }
+
         public event Action<ICardPlayer> Bust;
 
         public BlackJackController()
@@ -33,6 +39,7 @@ namespace BlackJackAndPoker.Controllers
             _house = new CardPlayer();
             Players = new List<ICardPlayer>();
             Bets = new Dictionary<ICardPlayer, int>();
+            Winner += Win;
         }
 
         public void StartGame<T>(int amountOfPlayers = 1) where T : ICardPlayer, new()
