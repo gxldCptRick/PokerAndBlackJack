@@ -64,11 +64,7 @@
     <Compile Include="ViewModels\Base Classes\ViewModelBase.cs" />
     <Compile Include="ViewModels\BlackJackData.cs" />
     <Compile Include="ViewModels\MainData.cs" />
-    <Compile Include="ViewModels\Base Classes\GameDataBase.cs" />
-    <Compile Include="ViewModels\Base Classes\IGameData.cs" />
-    <Compile Include="ViewModels\MainData.cs" />
     <Compile Include="ViewModels\PlayerData.cs" />
-    <Compile Include="ViewModels\Base Classes\ViewModelBase.cs" />
     <Compile Include="Views\GamePage.xaml.cs">
       <DependentUpon>GamePage.xaml</DependentUpon>
     </Compile>

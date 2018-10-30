@@ -8,7 +8,19 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="SettingsPage">
 
-    <Grid>
-        
+    <Grid Background="Yellow">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Number Of Players: " VerticalAlignment="Center" Margin="44" HorizontalAlignment="Left"/>
+        <ComboBox VerticalAlignment="Center" HorizontalAlignment="Center" Loaded="AmountOfPlayers_Loaded" Name="AmountOfPlayers"/>
+        <CheckBox VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1" Content="House Play"/>
+        <Button Grid.Row="1" Margin="70" Content="BlackJack" Click="BlackJacksonButtonClicked"/>
+        <Button Grid.Row="1" Margin="70" Grid.Column="1" Content="Poker" Click="PakerButtonClick"/>
     </Grid>
 </Page>

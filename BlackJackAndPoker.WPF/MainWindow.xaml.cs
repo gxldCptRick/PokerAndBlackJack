@@ -17,7 +17,7 @@ namespace BlackJackAndPoker.WPF
         {
             InitializeComponent();
             _pagesNavigated = new Dictionary<Type, Page>();
-            ChangePage(PageRequest.BlackJackTable);
+            ChangePage(PageRequest.SettingsPage);
         }
 
         private IDictionary<Type, Page> _pagesNavigated;

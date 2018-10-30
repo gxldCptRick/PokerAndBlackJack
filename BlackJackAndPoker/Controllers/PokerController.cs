@@ -123,12 +123,6 @@ namespace BlackJackAndPoker.Controllers
             player.AmountOfMonies = 0;
         }
 
-        public void Raise(ICardPlayer player, int raiseAmount)
-        {
-            currentBet = raiseAmount;
-            Call(player);
-        }
-
         public void EndBettingPhase()
         {
             currentBet = 0;
