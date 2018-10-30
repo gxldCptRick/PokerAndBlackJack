@@ -27,12 +27,19 @@ namespace BlackJackAndPoker.WPF.ViewModels
 
         public override void StartGame()
         {
-            throw new NotImplementedException();
+            _controller.StartGame<PlayerData>();
+            Players = _controller.Players.Cast<PlayerData>().ToList();
         }
 
         public override void TakeBets(ICardPlayer player, int bettingAmount)
         {
-            throw new NotImplementedException();
+            player.AmountOfMonies -= bettingAmount;
+            
+        }
+
+        public void DiscardAndDraw(ICardPlayer player, List<Card> discardedCards)
+        {
+            _controller.Discard(player, discardedCards);
         }
     }
 }
