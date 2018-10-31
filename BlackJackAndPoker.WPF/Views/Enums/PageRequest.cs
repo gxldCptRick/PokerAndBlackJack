@@ -6,7 +6,7 @@
         SettingsPage,
         GamePage,
         BlackJackTable,
-        Halp
+        Halp,
         PokerTable
     }
 }
